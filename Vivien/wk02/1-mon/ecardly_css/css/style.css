@@ -1,0 +1,56 @@
+body{
+	background: url("../images/background.jpg");
+	background-repeat:repeat-x;
+	background-color: #d6d6d6;
+}
+
+img{
+	display:block;
+}
+
+div{width:1010px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	margin: 0 auto;
+	
+}
+
+article{
+	padding:20px;
+	background: white;
+	display: inline-block;
+	width:600px;
+}
+
+nav{
+	padding:20px;
+	background:white;
+	display:inline-block;
+	margin:0 18px 18px 18px;
+	vertical-align:top;
+
+}
+
+nav img{
+	margin: 20px 32px;
+}
+
+#logo{
+	margin:40px auto;
+
+}
+a,b{
+	color:orange;
+}
+
+footer img{
+	display:inline-block
+	
+}
+
+footer{
+	margin:50px auto;
+	text-align: center;
+}
