@@ -1,6 +1,6 @@
 var trainStops =[
 	['FlindersStreet','Richmond','EastRichmond','Burnley','Hawthorn','Glenferrie'],
-	['FlagStaff','MelbourneCentral','Parliament','Richmond','Kooyong','tooronga'],
+	['FlagStaff','MelbourneCentral ','Parliament','Richmond','Kooyong','tooronga'],
 	['SouthernCross','Richmond','SouthYarra','Prahran','Windsor']
 ];
 
@@ -20,9 +20,10 @@ var showStops=function(getOn,getOff){
 		}
 
 		else {
-
+			debugger
 			 stops.push(trainStops[i].slice(trainStops[i].indexOf(getOff),trainStops[i].indexOf(getOn)+1));
-              var goingToCity= stop.reverve
+              var goingToCity= stops.reverse();
+              
 			 return goingToCity;
 		}
 	}
