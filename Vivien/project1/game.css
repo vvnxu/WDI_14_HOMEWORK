@@ -1,0 +1,48 @@
+h1{
+	font-size: -webkit-xxx-large;
+    color: #cc5353;
+    text-align: center;
+    padding: 20px;
+}
+h2{
+	font-size:30px;
+	display:inline-block;
+
+}
+nav{
+	text-align: center;
+}
+#player1,#player2{
+	padding: 15px;
+    margin: 10px 30px -20px 30px;
+
+}
+.gameboxes{
+	width: 80%;
+    height: 80%;
+    margin: 0 auto;
+	padding:20px;
+}
+
+.boxes{
+	border:2px solid mistyrose;
+	width: 30%;
+	height:30vh;
+	text-align: center;
+	display:inline-block;
+	margin:-3px;
+	border-top: none;
+
+}
+.b1,.b4,.b7 {
+	
+	border-left:none;
+}
+
+.b3,.b6,.b9{
+	border-right: none;
+}
+
+.b7,.b8,.b9{
+	border-bottom: none;
+}
