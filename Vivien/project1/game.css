@@ -1,3 +1,7 @@
+body{
+
+}
+
 h1{
 	font-size: -webkit-xxx-large;
     color: #cc5353;
@@ -8,6 +12,12 @@ h2{
 	font-size:30px;
 	display:inline-block;
 
+}
+
+img{
+	 width: 96%;
+    height: 100%;
+    margin-bottom: -259px;
 }
 nav{
 	text-align: center;
@@ -25,7 +35,7 @@ nav{
 }
 
 .boxes{
-	border:2px solid mistyrose;
+	border:2px solid blue;
 	width: 30%;
 	height:30vh;
 	text-align: center;
