@@ -1,32 +1,43 @@
-var trainStops =[
-	['FlindersStreet','Richmond','EastRichmond','Burnley','Hawthorn','Glenferrie'],
-	['FlagStaff','MelbourneCentral ','Parliament','Richmond','Kooyong','tooronga'],
-	['SouthernCross','Richmond','SouthYarra','Prahran','Windsor']
-];
+console.log("transport");
 
-var showStops=function(getOn,getOff){
+// train lines
+var lines = {
+	  alamein: ["Flinders Street", "Richmond", "East Richmond", "Burnley", "Hawthorn", "Glenferrie"],
+  glenWaverly: ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"],
+  sandringham: ["Southern Cross", "Richmond", "South Yarra", "Prahran", "Windsor"]}
 
-	var getOn=prompt('where are you getting on');
-	var getOff = prompt('where are you getting off')
-    var stops =[];
+// user input
+var origin= prompt('where are you getting on');
+
+var destination= prompt('where are you getting off');
+
+// calculating indexes
+
+// calculating number of stops
+
+// creating journey(city to )
+debugger
+var keys =Object.keys(lines);
+keys.forEach(function(key){
+	var originIndex = key.indexOf(origin);
+    var destIndex  = key.indexOf(destination);
+ if (originIndex > -1 && destIndex>-1){
+  	 var numberOfStops = destIndex - originIndex;
+  	 var journey = key.slice(originIndex, destIndex+1)
+ }else if(originIndex > destIndex){
+ 	numberOfStops=orginIndex -destIndex;
+ 	journey=key.slice(originIndex,destIndex-1)
+   }
+   outputToUser();
+})
 
 
-	for (i=0; i<trainStops.length; i++){
-		if (trainStops[i].indexOf(getOn)<trainStops[i].indexOf(getOff)){
-
-			stops.push(trainStops[i].slice(trainStops[i].indexOf(getOn),trainStops[i].indexOf(getOff)+1));
-			
-			return stops 
-		}
-
-		else {
-			debugger
-			 stops.push(trainStops[i].slice(trainStops[i].indexOf(getOff),trainStops[i].indexOf(getOn)+1));
-              var goingToCity= stops.reverse();
-              
-			 return goingToCity;
-		}
-	}
-
+function outputToUser () {
 	
+	console.log("origin: " + origin);
+	console.log("destination: " + destination);
+
+	console.log(numberOfStops + " stops");
+	console.log(journey.join(" ---> "))
 }
+
