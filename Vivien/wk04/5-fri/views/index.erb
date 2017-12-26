@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stockApp</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Welcome to Yahoo Finance</h1>
+	<ul>
+		<li>stock name&type:<%= @symbol%> ,
+		<%= @iname%>
+		</li>
+		<li>stock price:<%= @op %></li>
+		<li>52-week high:<%=@hi52%></li>
+
+		<li>low:<%=@lo%></li>
+		<h2><a href="http://localhost:4567/about">About</a></h2>
+	</ul>
+</body>
+</html>
