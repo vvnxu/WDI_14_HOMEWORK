@@ -8,18 +8,16 @@ get '/' do
 end
 
 get '/search' do
-  response = HTTParty.get('http://omdbapi.com/?apikey=f1d22a2f&s=#{params[:title]}').parsed_response
-  #an hash'search' with value of an array with multiple elements in 
+  @responsee = HTTParty.get("http://omdbapi.com/?apikey=f1d22a2f&s=#{params[:title]}").parsed_response
 
-  @info=response['search']
+  @info=@responsee['Search']
 
   erb :search
   #return @info.inspect
 
-
 end
 get '/result' do
-  result = HTTParty.get('http://omdbapi.com/?apikey=f1d22a2f&t=#{params[:title]}')
+  result = HTTParty.get("http://omdbapi.com/?apikey=f1d22a2f&t=#{params[:title]}").parsed_response
   @title=result['Title']
   @released=result['Released']
   @rating=result['Runtime']

@@ -1,6 +1,6 @@
 <ol>
 	<% @info.each do |movie|%>
-	<li><a href="http://omdbapi.com/?apikey=f1d22a2f&t=<%=movie['Title']%>">
+	<li><a href="/result?t=<%=movie['Title']%>">
 		<%= movie['Title']%> </a> </li>
 	<%end%>
 	
