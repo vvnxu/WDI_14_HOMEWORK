@@ -1,7 +1,9 @@
 <ol>
 	<% @info.each do |movie|%>
+
 	<li><a href="/result?t=<%=movie['Title']%>">
 		<%= movie['Title']%> </a> </li>
 	<%end%>
+	
 	
 </ol>
