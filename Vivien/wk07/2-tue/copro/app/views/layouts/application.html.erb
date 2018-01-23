@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Copro</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+
+         <h1> COPROOOOOOOOO </h1>
+         <nav>
+           <a href="/">Home</a>
+         </nav>
+    <%if !session[:user_email]%>
+      <a href="/login">Login here</a>
+      <hr>
+    <%else%>
+      <form class="" action="/session" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+        <h2>logged in as : <%=session[:user_email]%></h2><br>
+
+        <input type="hidden" name="_method" value="delete">
+        <button >logout</button>
+      </form>
+      <hr>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>

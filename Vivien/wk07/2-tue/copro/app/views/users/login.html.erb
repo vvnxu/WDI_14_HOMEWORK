@@ -1,0 +1,20 @@
+<%if ! session[:user_email]%>
+<form class="" action="/session" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+<label for=""> Email : </label>
+<input type="text" name="email" value=""><br>
+<label for="">Password:</label>
+<input type="password" name="password" value="">
+<button >Login</button>
+</form>
+<hr>
+<form class="" action="/signup" method="get">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+
+  <h2>Dont have an account?</h2>
+  <button >Sign up</button>
+</form>
+<%else%>
+<h1>Already signed in as <%=session[:user_email]%></h1>
+<%end%>
