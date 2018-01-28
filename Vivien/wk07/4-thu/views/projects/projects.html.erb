@@ -1,0 +1,42 @@
+<h2><%=@info.title%></h2>
+  <form class="" action="/projects/<%=@info.id%>/edit" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button >EDIT</button>
+  </form>
+
+<form class="" action="/projects/<%=@info.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button >DELETE</button>
+</form>
+<img src="<%=@info.preview.url%>" alt="">
+<span class='crab'>&#10086;</span>
+<div class="comments">
+    <% @comments.each do |comment|%>
+      <h2>User <%=comment.user_id%> says:</h2>
+      <p><%=comment.content%></p>
+          <%if comment.user_id==session[:user_id]%>
+            <form class="" action="/comments/<%=comment.id%>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" name="project_id" value="<%=@info.id%>">
+              <button >delete</button>
+            </form>
+          <%end%>
+  <% end %>
+</div>
+<form class="" action="/likes" method="post">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+   <input type="hidden" name="project_id" value="<%=@info.id%>">
+  <p><%=@info.likes.count%> people liked this</p>
+   <button>like</button>
+ </form>
+
+
+<form class="" action="/comments" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="project_id" value="<%=@info.id%>">
+    <label for="">add a comment</label>
+    <textarea name="comment" rows="8" cols="80"></textarea>
+    <button>SUBMIT</button>
+</form>

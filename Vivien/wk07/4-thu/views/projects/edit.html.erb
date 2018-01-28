@@ -1,0 +1,10 @@
+<form class="" action="/projects/<%=@info.id%>" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+  <h1>Edit information</h1>
+  <label for="">Project title:<%=@info.title%></label>
+  <input type="text" name="title" value="<%=@info.title%>" placeholder="ENTER NEW TITLE">
+  <label for="">upload new picture</label>
+  <input type="file" name='preview' value='<%=@info.preview.url%>'>
+  <button >SUBMIT</button>
+</form>
