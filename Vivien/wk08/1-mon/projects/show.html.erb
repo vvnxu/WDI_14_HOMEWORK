@@ -1,0 +1,52 @@
+
+<div class="wrapper">
+  <h2><%=@info.title%></h2>
+  <form class="" action="/projects/<%=@info.id%>/edit" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button >EDIT</button>
+  </form>
+
+<form class="" action="/projects/<%=@info.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button >DELETE</button>
+</form>
+<img src="<%=@info.preview.url%>" alt="">
+<button class='crab'>Like &#10086;</button>
+
+
+<div class="comments">
+    <% @comments.each do |comment|%>
+      <h2>User <%=comment.user_id%> says:</h2>
+      <p><%=comment.content%></p>
+          <%if comment.user_id==session[:user_id]%>
+            <form class="" action="/comments/<%=comment.id%>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" name="project_id" value="<%=@info.id%>">
+              <button >delete</button>
+            </form>
+          <%end%>
+  <% end %>
+</div>
+<form class="" action="/likes" method="post">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+   <input type="hidden" name="project_id" value="<%=@info.id%>">
+  <p> <em> <%=@info.likes.count%> </em> people liked this</p>
+
+ </form>
+ </div>
+
+ <script>
+  var heart=document.querySelector(".crab")
+  heart.addEventListener('click',function(event){
+    heart.classList.toggle('color')
+    var div=event.target.closest('div')
+    var button=div.querySelector('em')
+    if (heart.className=='crab'){
+       button.textContent=Number(button.textContent)+1
+        }else{
+          button.textContent=Number(button.textContent)-1
+        }
+  })
+</script>

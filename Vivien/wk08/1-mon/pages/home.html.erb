@@ -1,0 +1,27 @@
+<div class="container">
+  <%@projects.each do |project|%>
+
+  <div class="project">
+    <a href="/projects/<%=project.id%>">
+      <h2>Project: <%=project.title%></h2>
+       <img src="<%=project.preview.url%>" alt="">
+    </a>
+    <span class='crab'>&#10086;</span>
+    <button>
+    	<%=project.likes.count%>
+    </button>
+  </div>
+  <%end%>
+</div>
+
+<script>
+	var hearts=document.querySelectorAll('.crab')
+	
+	hearts.forEach(function(heart){
+		heart.addEventListener('click',function(even){
+				var div=event.target.closest('div')
+				var button=div.querySelector("button")
+				button.textContent=Number(button.textContent)+1
+		})
+	})
+</script>
