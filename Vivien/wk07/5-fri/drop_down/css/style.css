@@ -123,16 +123,16 @@ header {
   background: #fff600;
 }
 
-.nyc {
+.NYC {
   background-image: url(../images/nyc.jpg)
 }
-.sf {
+.SF {
   background-image: url(../images/sf.jpg)
 }
-.la {
+.LA {
   background-image: url(../images/la.jpg)
 }
-.austin {
+.Austin {
   background-image: url(../images/austin.jpg)
 }
 .sydney {
@@ -140,7 +140,7 @@ header {
 }
 
 /******************************************
-/* ADDITIONAL STYLES
+ 
 /*******************************************/
 
 
