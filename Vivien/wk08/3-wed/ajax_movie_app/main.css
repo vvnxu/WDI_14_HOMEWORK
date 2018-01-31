@@ -1,0 +1,41 @@
+body{
+	background: mistyrose;
+}
+h1{
+	font-family: 'Lobster', cursive;
+	text-align: center;
+	font-size:50px;
+
+}
+a{
+	font-family: 'Lobster', cursive;
+	text-align: center;
+	font-size:40px;
+	background-color:mistyrose;
+	color:red;
+	margin:10px auto;
+}
+img{
+	border-radius: 30px;
+	margin:5px 25px;
+
+}
+p{
+	font-family: 'Lobster', cursive;
+}
+div{
+	border: 5px solid white;
+	display:inline-block;
+	width:25%;
+	margin:2% 3%;
+	height:320px;
+	overflow:hidden;
+}
+.container {
+	background: none;
+	width: 100%;
+	border:none;
+}
+.color{
+	color:red;
+}
