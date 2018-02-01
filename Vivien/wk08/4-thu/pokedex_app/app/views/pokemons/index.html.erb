@@ -1,0 +1,22 @@
+<h1>Your Pokemons</h1>
+<% @pokemons.each do |pokemon| %>
+<div>
+	<a href="/pokemons/<%=pokemon.id%>"> 
+		<h2> Pokemon caught:<%=pokemon.nickname%></h2>
+	 	><br>
+		
+	<h2> Species:<%=pokemon.species%></h2>
+	<p>Level:<%=pokemon.level%></p>
+	<img src="<%=pokemon.image%>" alt="">
+	</a>
+	 <a href="/pokemons/<%=pokemon.id%>/edit"> <%=pokemon.species%> Transform</a>
+		<form action="/pokemons/<%=pokemon.id%>" method='post'>
+			<input type="hidden" name="_method" value='delete'>
+			<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+			<button>Release <%=pokemon.species%> </button>
+			
+		</form>
+
+</div>
+<%end%>

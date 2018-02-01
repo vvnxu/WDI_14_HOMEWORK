@@ -1,0 +1,13 @@
+<form action="/pokemons" method='post' enctype="multipart/form-data">
+<input type="hidden" name="_method" value='put'>
+<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+<label for="">Species:</label>
+<input type="text" name='species'>
+<label for="">Nickname:</label>
+<input type="text name='name">
+<label for="">Level:</label>
+<input type="text" name='level'>
+<label for="">Upload image:</label>
+<input type="file" name='image' value="<%=@pokemon.image%>">
+<button>submit</button>
+</form>
