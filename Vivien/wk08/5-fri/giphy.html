@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script
+	  src="http://code.jquery.com/jquery-3.3.1.js"
+	  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	  crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<h1>Infinite Giphy</h1>
+		<input type="text">
+		<button>SEARCH</button>
+		<p class="error-message"></p>
+		<div class='show'>
+			
+		</div>
+		<script>
+			console.log("banana phone")
+			var offset = 0
+
+			function getImages (content, offset) {
+				var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + content + "&api_key=qz13yOgi5nbajOEmMjHv8ndzJ9ehv05d&limit=10&offset=" + offset);
+
+				xhr.done(function(res) { 
+					objects=res.data
+
+					objects.forEach(function(object){
+						var imgUrl=object.images.original.url
+						var pic=$('<img>').attr('src', imgUrl)
+						var newDiv= $('<div>').append(pic)
+
+						$(".show").append(newDiv)	
+					})	
+				})
+			}
+
+			$("button").on('click',function(){
+				var content=$("input").val()
+				
+				if (content !== ""){
+					$(".show").empty()
+					offset = 0
+
+					getImages(content, offset)
+				
+					window.onscroll=function(e){
+						if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 20) {
+							offset += 10
+							getImages(content, offset)
+						}
+					}		
+					// console.log(data)
+				} else {
+					$('.error-message').html("<h2>input invalid</h2>")
+				}
+
+			})
+		</script>
+	</body>
+</html>
